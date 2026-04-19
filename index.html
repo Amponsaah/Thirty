@@ -1,209 +1,999 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 30th Bella</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 30th Bella</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Elegant fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root {
+      --bg1: #1a1018;
+      --bg2: #2c1825;
+      --bg3: #4b2334;
 
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  color: #fff8f4;
-  background: linear-gradient(145deg,#1a1018,#2c1825,#4b2334);
-}
+      --blush: #d6a2ad;
+      --blush-soft: #e7c3cb;
+      --champagne: #e8d7b3;
+      --gold: #d4af37;
+      --gold-soft: #f3e5b9;
+      --rose-gold: #d9b08c;
+      --cream: #fff8f3;
+      --ivory: #f8f1ea;
 
-/* TYPOGRAPHY */
-p { text-align: justify; }
+      --text: #fff8f4;
+      --muted: rgba(255, 248, 244, 0.78);
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 240, 230, 0.16);
+      --success: #edf8ef;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
 
-/* HEADINGS */
-h1,h2,h3 {
-  font-family: "Cormorant Garamond", serif;
-  text-align: center;
-  background: linear-gradient(90deg,#f8edd1,#d4af37,#fff6dc,#d9b08c,#f8edd1);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 12s linear infinite;
-}
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
 
-@keyframes shimmer {
-  from { background-position: 200%; }
-  to { background-position: -200%; }
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* CONTAINER */
-.container {
-  max-width: 700px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(232, 215, 179, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 14%, rgba(214, 162, 173, 0.14), transparent 26%),
+        radial-gradient(circle at 20% 85%, rgba(217, 176, 140, 0.10), transparent 24%),
+        linear-gradient(145deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+      overflow-x: hidden;
+    }
 
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  margin-top: 10px;
-}
+    body::before {
+      background:
+        radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,0.35), transparent 50%),
+        radial-gradient(2px 2px at 78% 16%, rgba(255,255,255,0.28), transparent 50%),
+        radial-gradient(2px 2px at 66% 58%, rgba(255,255,255,0.22), transparent 50%),
+        radial-gradient(2px 2px at 26% 74%, rgba(255,255,255,0.18), transparent 50%),
+        radial-gradient(2px 2px at 84% 84%, rgba(255,255,255,0.18), transparent 50%);
+      animation: twinkle 7s ease-in-out infinite alternate;
+      opacity: 0.8;
+    }
 
-/* BUTTON */
-button {
-  margin-top: 12px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg,#e0c983,#f5e6c3,#d9b08c);
-  cursor: pointer;
-}
+    body::after {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 20%, rgba(255,255,255,0.02));
+      mix-blend-mode: screen;
+    }
 
-/* HIDDEN */
-.hidden { display:none; }
+    @keyframes twinkle {
+      0% { opacity: 0.45; transform: scale(1); }
+      100% { opacity: 0.95; transform: scale(1.02); }
+    }
 
-/* CONFETTI */
-.confetti {
-  position: fixed;
-  width: 8px;
-  height: 12px;
-  top: -20px;
-  animation: fall linear forwards;
-}
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 52px 0 90px;
+    }
 
-@keyframes fall {
-  to { transform: translateY(100vh) rotate(720deg); }
-}
+    .hero {
+      text-align: center;
+      margin-bottom: 32px;
+      animation: fadeUp 1s ease;
+    }
 
-/* GIFT CARD */
-.voucher {
-  background: linear-gradient(135deg,#341926,#6f4053,#d1b18e);
-  padding: 25px;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-}
+    .hero .eyebrow {
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      font-size: 0.76rem;
+      margin-bottom: 12px;
+      font-family: "Inter", sans-serif;
+    }
 
-.voucher::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.1),transparent);
-  animation: foil 6s infinite;
-}
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 28px rgba(212,175,55,0.12);
+    }
 
-@keyframes foil {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
-}
+    .hero .sub {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.12rem);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      font-weight: 300;
+    }
 
-/* CENTER FINAL BADGE */
-.celebrate {
-  display:flex;
-  justify-content:center;
-  margin-top:20px;
-  font-weight:bold;
-}
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
 
-</style>
+    .main-panel {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(232,215,179,0.08), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(214,162,173,0.10), transparent 26%);
+      pointer-events: none;
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(rgba(18, 11, 16, 0.78), rgba(18, 11, 16, 0.84)),
+        radial-gradient(circle at center, rgba(232,215,179,0.10), transparent 42%);
+      padding: 24px;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .video-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .video-card {
+      width: min(860px, 100%);
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 245, 235, 0.16);
+      background:
+        linear-gradient(135deg, rgba(48, 24, 36, 0.96), rgba(97, 47, 68, 0.90)),
+        radial-gradient(circle at top right, rgba(232,215,179,0.18), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(214,162,173,0.18), transparent 32%);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 38px;
+    }
+
+    .floating-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.46;
+      animation: drift 11s ease-in-out infinite alternate;
+    }
+
+    .glow1 {
+      width: 240px;
+      height: 240px;
+      background: rgba(232,215,179,0.16);
+      top: -45px;
+      right: -30px;
+    }
+
+    .glow2 {
+      width: 190px;
+      height: 190px;
+      background: rgba(214,162,173,0.18);
+      bottom: -30px;
+      left: -16px;
+      animation-delay: 1.6s;
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      100% { transform: translateY(14px) translateX(-10px) scale(1.08); }
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 670px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .video-badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,215,179,0.28);
+      background: rgba(255,255,255,0.05);
+      color: var(--gold-soft);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: "Inter", sans-serif;
+    }
+
+    .video-content h2 {
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 4.4vw, 4rem);
+      line-height: 1.03;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .video-content p {
+      margin: 0 auto 24px;
+      color: var(--ivory);
+      line-height: 1.9;
+      font-size: clamp(1rem, 2.2vw, 1.14rem);
+      font-weight: 300;
+    }
+
+    .typing-line {
+      min-height: 76px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+      font-family: "Inter", sans-serif;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d8bb74, #f2e2b8 52%, #d9b08c);
+      color: #321d10;
+      box-shadow: 0 12px 30px rgba(212,175,55,0.24);
+    }
+
+    .progress {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 8px 0 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: all 0.3s ease;
+    }
+
+    .step-dot.active {
+      background: linear-gradient(135deg, var(--gold), var(--champagne));
+      box-shadow: 0 0 18px rgba(212,175,55,0.45);
+      transform: scale(1.08);
+    }
+
+    .step-dot.done {
+      background: #ead7a4;
+    }
+
+    .digit-slot-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .digit-slot {
+      width: 58px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      color: var(--gold-soft);
+      font-family: "Cormorant Garamond", serif;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+
+    .riddle-card,
+    .gift-card,
+    .code-card {
+      display: none;
+      animation: fadeUp 0.6s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .riddle-card.active,
+    .gift-card.active,
+    .code-card.active {
+      display: block;
+    }
+
+    .card-inner {
+      padding: 30px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .section-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .riddle-title {
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .riddle-text {
+      color: var(--ivory);
+      line-height: 1.95;
+      font-size: 1.02rem;
+      white-space: pre-line;
+      margin-bottom: 22px;
+      font-weight: 300;
+    }
+
+    .answer-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1 1 240px;
+      min-width: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      padding: 14px 16px;
+      font-size: 1rem;
+      outline: none;
+      font-family: "Inter", sans-serif;
+    }
+
+    input[type="text"]::placeholder {
+      color: rgba(255,248,244,0.42);
+    }
+
+    .feedback {
+      margin-top: 14px;
+      min-height: 24px;
+      font-size: 0.96rem;
+      color: var(--muted);
+      font-family: "Inter", sans-serif;
+    }
+
+    .feedback.success {
+      color: var(--success);
+    }
+
+    .feedback.error {
+      color: #ffd9df;
+    }
+
+    .gift-card {
+      margin-top: 18px;
+    }
+
+    .gift-reveal {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 36px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)),
+        radial-gradient(circle at top right, rgba(232,215,179,0.16), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(214,162,173,0.18), transparent 30%);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .gift-reveal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 10%, rgba(255,255,255,0.08) 28%, transparent 52%);
+      transform: translateX(-120%);
+      animation: shine 3.4s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-120%); }
+      55% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .gift-top {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .gift-top h2 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 4vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.04;
+    }
+
+    .gift-top p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .voucher {
+      position: relative;
+      z-index: 1;
+      width: min(700px, 100%);
+      margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #341926, #6f4053 58%, #d1b18e);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.30);
+    }
+
+    .voucher-header,
+    .voucher-body,
+    .voucher-footer {
+      padding: 24px 26px;
+    }
+
+    .voucher-header {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .voucher-brand {
+      font-size: 1.06rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      font-family: "Inter", sans-serif;
+    }
+
+    .voucher-badge {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.82rem;
+      color: var(--cream);
+      font-family: "Inter", sans-serif;
+    }
+
+    .voucher-body h3 {
+      margin: 0 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+      line-height: 1.14;
+      font-weight: 600;
+    }
+
+    .voucher-body p {
+      margin: 0 0 18px;
+      color: var(--cream);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .detail-box .label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .detail-box .value {
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .voucher-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+    }
+
+    .voucher-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 450px;
+      font-weight: 300;
+    }
+
+    .celebrate {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #e0c983, #f5e6c3 52%, #d9b08c);
+      color: #35200f;
+      font-weight: 700;
+      font-family: "Inter", sans-serif;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.20);
+    }
+
+    .small-note {
+      text-align: center;
+      margin-top: 18px;
+      color: rgba(255,248,244,0.58);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 16px;
+      top: -20px;
+      z-index: 100;
+      opacity: 0.95;
+      pointer-events: none;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 22px, 940px);
+        padding-top: 30px;
+      }
+
+      .main-panel {
+        padding: 18px;
+      }
+
+      .card-inner,
+      .gift-reveal {
+        padding: 20px;
+      }
+
+      .video-card {
+        min-height: 380px;
+        padding: 24px;
+      }
+
+      .digit-slot {
+        width: 50px;
+        height: 62px;
+        font-size: 1.45rem;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .voucher-header,
+      .voucher-body,
+      .voucher-footer {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="video-overlay" id="videoOverlay">
+    <div class="video-card">
+      <div class="floating-glow glow1"></div>
+      <div class="floating-glow glow2"></div>
 
-<h1>Happy Birthday Bella ✨</h1>
+      <div class="video-content">
+        <div class="video-badge">A Birthday Surprise</div>
+        <h2>Happy Birthday, Bella! ✨</h2>
+        <p class="typing-line" id="typedMessage"></p>
+        <button class="btn btn-primary" id="startBtn">Unlock</button>
+      </div>
+    </div>
+  </div>
 
-<div class="card" id="r1">
-<p>What is the magnitude of e^(iθ)?</p>
-<input id="a1">
-<button onclick="check(1)">Submit</button>
-</div>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Thirty, but make it unforgettable</div>
+      <h1>Ella Bella at 30</h1>
+      <div class="sub">
+        A little mystery. A little glamour. A birthday gift waiting behind the right four digits.
+      </div>
+    </section>
 
-<div class="card hidden" id="r2">
-<p>We are three Epistles of Paul... what number am I?</p>
-<input id="a2">
-<button onclick="check(2)">Submit</button>
-</div>
+    <section class="panel main-panel">
+      <div class="progress" id="progressDots">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+      </div>
 
-<div class="card hidden" id="r3">
-<p>From how many realms was the one first made?</p>
-<input id="a3">
-<button onclick="check(3)">Submit</button>
-</div>
+      <div class="digit-slot-wrap" id="digitSlots">
+        <div class="digit-slot" id="slot1">•</div>
+        <div class="digit-slot" id="slot2">•</div>
+        <div class="digit-slot" id="slot3">•</div>
+        <div class="digit-slot" id="slot4">•</div>
+      </div>
 
-<div class="card hidden" id="r4">
-<p>How many walked within the flames?</p>
-<input id="a4">
-<button onclick="check(4)">Submit</button>
-</div>
+      <div class="riddle-card active" id="riddle1">
+        <div class="card-inner">
+          <div class="section-label">Riddle 1</div>
+          <h2 class="riddle-title">The first digit</h2>
+          <div class="riddle-text">What is the magnitude of e^(i*theta)?</div>
+          <div class="answer-row">
+            <input type="text" id="answer1" placeholder="Enter the answer" />
+            <button class="btn btn-primary" onclick="checkAnswer(1)">Submit</button>
+          </div>
+          <div class="feedback" id="feedback1"></div>
+        </div>
+      </div>
 
-<div class="card hidden" id="final">
-<h2>Unlocked 🔓</h2>
+      <div class="riddle-card" id="riddle2">
+        <div class="card-inner">
+          <div class="section-label">Riddle 2</div>
+          <h2 class="riddle-title">The second digit</h2>
+          <div class="riddle-text">We are three Epistles of Paul. Sum up our chapters and you’ll have 12.
+Only one of us carries a number in its name.
+What number am I?</div>
+          <div class="answer-row">
+            <input type="text" id="answer2" placeholder="Enter the answer" />
+            <button class="btn btn-primary" onclick="checkAnswer(2)">Submit</button>
+          </div>
+          <div class="feedback" id="feedback2"></div>
+        </div>
+      </div>
 
-<div class="voucher">
-<h3>Photoshoot Gift Card</h3>
+      <div class="riddle-card" id="riddle3">
+        <div class="card-inner">
+          <div class="section-label">Riddle 3</div>
+          <h2 class="riddle-title">The third digit</h2>
+          <div class="riddle-text">One of three crossed the sea,
+With fire and blood made the kingdoms one,
+Five would share in his name and blood,
+Each heir to what he had begun.
+The most fragile of these, wise at last,
+Said to his tall and trusted friend:
+“The one we name was not so few—
+The count is more than tales pretend.”
+So tell me right and tell me true:
+From how many realms was the one first made?</div>
+          <div class="answer-row">
+            <input type="text" id="answer3" placeholder="Enter the answer" />
+            <button class="btn btn-primary" onclick="checkAnswer(3)">Submit</button>
+          </div>
+          <div class="feedback" id="feedback3"></div>
+        </div>
+      </div>
 
-<p>
-Flashing Lights Photos<br>
-May 1, 2026 — 15:00
-</p>
+      <div class="riddle-card" id="riddle4">
+        <div class="card-inner">
+          <div class="section-label">Riddle 4</div>
+          <h2 class="riddle-title">The final digit</h2>
+          <div class="riddle-text">If earlier clues taught you to look past the surface, then listen closely:
+not all who stood in the fire were consumed,
+and not all who entered the furnace were bound.
+How many walked within the flames?
+What number am I?</div>
+          <div class="answer-row">
+            <input type="text" id="answer4" placeholder="Enter the answer" />
+            <button class="btn btn-primary" onclick="checkAnswer(4)">Submit</button>
+          </div>
+          <div class="feedback" id="feedback4"></div>
+        </div>
+      </div>
 
-<p>
-This is your moment to shine.  
-Step in front of the camera and celebrate 30 in style.
-</p>
+      <div class="code-card" id="codeCard">
+        <div class="card-inner" style="text-align:center;">
+          <div class="section-label">Vault Unlocked</div>
+          <h2 class="riddle-title">Code accepted: 1294 🔓</h2>
+          <div class="riddle-text" style="margin-bottom: 18px;">
+            Happy Birthday Bella.
+            You solved it beautifully.
+            Your gift is ready.
+          </div>
+          <button class="btn btn-primary" onclick="showGiftCard()">Reveal Gift Card</button>
+        </div>
+      </div>
 
-</div>
+      <div class="gift-card" id="giftCard">
+        <div class="gift-reveal">
+          <div class="gift-top">
+            <div class="section-label">Birthday Gift Reveal</div>
+            <h2>For Bella, with love ✨</h2>
+            <p>
+              From The Okoe-Amons — a little birthday mystery, and now, your moment to shine.
+            </p>
+          </div>
 
-<div class="celebrate">🥂 to 30</div>
+          <div class="voucher">
+            <div class="voucher-header">
+              <div class="voucher-brand">Flashing Lights Photos</div>
+              <div class="voucher-badge">Gift Card • Photoshoot Experience</div>
+            </div>
 
-</div>
+            <div class="voucher-body">
+              <h3>Photoshoot Gift Card</h3>
+              <p>
+                This card is your invitation to celebrate 30 in front of the camera —
+                radiant, elegant, and completely unforgettable.
+              </p>
 
-</div>
+              <div class="details-grid">
+                <div class="detail-box">
+                  <div class="label">Date</div>
+                  <div class="value">May 1, 2026</div>
+                </div>
+                <div class="detail-box">
+                  <div class="label">Time</div>
+                  <div class="value">15:00</div>
+                </div>
+                <div class="detail-box">
+                  <div class="label">Experience</div>
+                  <div class="value">Birthday Photoshoot Session</div>
+                </div>
+                <div class="detail-box">
+                  <div class="label">For</div>
+                  <div class="value">Isabella "Ella Bella" Wallis</div>
+                </div>
+              </div>
+            </div>
 
-<script>
+            <div class="voucher-footer">
+              <div class="voucher-note">
+                Arrive glowing. Leave iconic. This one is all about celebrating your beauty, your softness, your power, and the beginning of your next beautiful chapter.
+              </div>
+              <div class="celebrate">🥂 to 30</div>
+            </div>
+          </div>
 
-const answers = ["1","2","9","4"];
+          
+        </div>
+      </div>
+    </section>
+  </main>
 
-function check(n){
-  let val = document.getElementById("a"+n).value.trim();
+  <script>
+    const correctAnswers = {
+      1: "1",
+      2: "2",
+      3: "9",
+      4: "4"
+    };
 
-  if(val === answers[n-1]){
-    document.getElementById("r"+n).classList.add("hidden");
+    const typedMessageText =
+      "We, the Okoe-Amons, got you something, but you’ll have to unlock it first 😌 Solve the four riddles, one by one, and your birthday surprise will be revealed.";
 
-    if(n<4){
-      document.getElementById("r"+(n+1)).classList.remove("hidden");
-    } else {
-      document.getElementById("final").classList.remove("hidden");
-      confetti();
+    let typingIndex = 0;
+    const typedMessageEl = document.getElementById("typedMessage");
+
+    function typeMessage() {
+      if (typingIndex < typedMessageText.length) {
+        typedMessageEl.textContent += typedMessageText.charAt(typingIndex);
+        typingIndex++;
+        setTimeout(typeMessage, 32);
+      }
     }
-  }
-}
 
-function confetti(){
-  for(let i=0;i<100;i++){
-    let c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*100+"vw";
-    c.style.background=["#d4af37","#fff","#d6a2ad"][Math.floor(Math.random()*3)];
-    c.style.animationDuration=(3+Math.random()*3)+"s";
-    document.body.appendChild(c);
-  }
-}
+    typeMessage();
 
-</script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      document.getElementById("videoOverlay").classList.add("hidden");
+    });
 
+    function normalizeAnswer(value) {
+      return value.trim().toLowerCase();
+    }
+
+    function updateProgress(currentStepCompleted) {
+      const dots = document.querySelectorAll(".step-dot");
+
+      dots.forEach((dot, index) => {
+        const stepNumber = index + 1;
+        dot.classList.remove("active", "done");
+
+        if (stepNumber < currentStepCompleted) {
+          dot.classList.add("done");
+        } else if (stepNumber === currentStepCompleted) {
+          dot.classList.add("active");
+        }
+      });
+
+      if (currentStepCompleted > 4) {
+        dots.forEach(dot => {
+          dot.classList.remove("active");
+          dot.classList.add("done");
+        });
+        dots[4].classList.add("active");
+      }
+    }
+
+    function revealDigit(step, digit) {
+      const slot = document.getElementById(`slot${step}`);
+      slot.textContent = digit;
+    }
+
+    function hideRiddle(step) {
+      document.getElementById(`riddle${step}`).classList.remove("active");
+    }
+
+    function showRiddle(step) {
+      document.getElementById(`riddle${step}`).classList.add("active");
+    }
+
+    function launchConfetti() {
+      const colors = ["#d4af37", "#f3e5b9", "#d6a2ad", "#e7c3cb", "#d9b08c", "#fff8f3"];
+
+      for (let i = 0; i < 140; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = 6 + Math.random() * 8 + "px";
+        confetti.style.height = 10 + Math.random() * 14 + "px";
+        confetti.style.borderRadius = Math.random() > 0.5 ? "2px" : "50%";
+        confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
+        confetti.style.animationDelay = Math.random() * 0.8 + "s";
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 7000);
+      }
+    }
+
+    function checkAnswer(step) {
+      const input = document.getElementById(`answer${step}`);
+      const feedback = document.getElementById(`feedback${step}`);
+      const userAnswer = normalizeAnswer(input.value);
+      const correct = correctAnswers[step];
+
+      if (userAnswer === correct) {
+        feedback.textContent = "Correct ✨";
+        feedback.className = "feedback success";
+        input.disabled = true;
+
+        revealDigit(step, correct);
+
+        setTimeout(() => {
+          hideRiddle(step);
+
+          if (step < 4) {
+            showRiddle(step + 1);
+            updateProgress(step + 1);
+          } else {
+            document.getElementById("codeCard").classList.add("active");
+            updateProgress(5);
+            launchConfetti();
+          }
+        }, 700);
+      } else {
+        feedback.textContent = "Not quite — try again.";
+        feedback.className = "feedback error";
+      }
+    }
+
+    function showGiftCard() {
+      document.getElementById("codeCard").classList.remove("active");
+      document.getElementById("giftCard").classList.add("active");
+      document.getElementById("giftCard").scrollIntoView({ behavior: "smooth", block: "start" });
+      launchConfetti();
+    }
+
+    ["answer1", "answer2", "answer3", "answer4"].forEach((id, index) => {
+      const el = document.getElementById(id);
+      el.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkAnswer(index + 1);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
